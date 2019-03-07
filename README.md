@@ -15,7 +15,7 @@
   
   # Add the dependency
       dependencies {
-	        implementation 'com.github.adnanganie:ClickableDrawableIcon:v1.0'
+	        implementation 'com.github.adnanganie:ClickableDrawableIcon:v1.0.1'
 	    }
 # Handle click on drawableSTART and drawableEND
 
