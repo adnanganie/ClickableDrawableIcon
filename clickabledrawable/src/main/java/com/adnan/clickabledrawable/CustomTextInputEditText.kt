@@ -68,7 +68,6 @@ class CustomTextInputEditText : TextInputEditText {
                 y = actionY
 
                 if (!bounds!!.contains(actionX, actionY)) {
-                    /* Gives the +20 area for tapping. */
                     x = actionX - extraTapArea
                     y = actionY - extraTapArea
 
@@ -84,8 +83,8 @@ class CustomTextInputEditText : TextInputEditText {
                 }
 
                 if (bounds.contains(x, y) && clickListener != null) {
-                    clickListener!!
-                            .onClick(DrawableClickListener.DrawablePosition.LEFT)
+                    clickListener?.onClick(DrawableClickListener.DrawablePosition.LEFT)
+                    clickListener?.onClick(DrawableClickListener.DrawablePosition.START)
                     event.action = MotionEvent.ACTION_CANCEL
                     return false
 
@@ -135,8 +134,8 @@ class CustomTextInputEditText : TextInputEditText {
 
                 /*If drawble bounds contains the x and y points then move ahead.*/
                 if (bounds!!.contains(x, y) && clickListener != null) {
-                    clickListener!!
-                            .onClick(DrawableClickListener.DrawablePosition.RIGHT)
+                    clickListener?.onClick(DrawableClickListener.DrawablePosition.RIGHT)
+                    clickListener?.onClick(DrawableClickListener.DrawablePosition.END)
                     event.action = MotionEvent.ACTION_CANCEL
                     return false
                 }
@@ -164,7 +163,8 @@ class CustomTextInputEditText : TextInputEditText {
 
         enum class DrawablePosition {
             TOP, BOTTOM,
-            LEFT, RIGHT
+            LEFT, RIGHT,
+            START, END
         }
 
         fun onClick(target: DrawableClickListener.DrawablePosition)
