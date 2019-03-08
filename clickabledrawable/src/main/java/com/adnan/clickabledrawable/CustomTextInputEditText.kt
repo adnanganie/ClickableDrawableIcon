@@ -14,6 +14,8 @@ class CustomTextInputEditText : TextInputEditText {
     private var drawableLeft: Drawable? = null
     private var drawableTop: Drawable? = null
     private var drawableBottom: Drawable? = null
+    private var drawableStart: Drawable? = null
+    private var drawableEnd: Drawable? = null
 
     internal var actionX: Int = 0
     internal var actionY: Int = 0
@@ -23,6 +25,24 @@ class CustomTextInputEditText : TextInputEditText {
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {}
+
+    override fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Drawable?, top: Drawable?, end: Drawable?, bottom: Drawable?) {
+
+        if (start != null) {
+            drawableLeft = start
+        }
+        if (end != null) {
+            drawableRight = end
+        }
+        if (top != null) {
+            drawableTop = top
+        }
+        if (bottom != null) {
+            drawableBottom = bottom
+        }
+        super.setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
+
+    }
 
     override fun setCompoundDrawables(left: Drawable?, top: Drawable?,
                                       right: Drawable?, bottom: Drawable?) {
@@ -41,11 +61,13 @@ class CustomTextInputEditText : TextInputEditText {
         super.setCompoundDrawables(left, top, right, bottom)
     }
 
+
     override fun onTouchEvent(event: MotionEvent): Boolean {
         var bounds: Rect?
         if (event.action == MotionEvent.ACTION_DOWN) {
             actionX = event.x.toInt()
             actionY = event.y.toInt()
+
             if (drawableBottom != null && drawableBottom!!.bounds.contains(actionX, actionY)) {
                 clickListener!!.onClick(DrawableClickListener.DrawablePosition.BOTTOM)
                 return super.onTouchEvent(event)
@@ -170,5 +192,4 @@ class CustomTextInputEditText : TextInputEditText {
         fun onClick(target: DrawableClickListener.DrawablePosition)
 
     }
-
 }

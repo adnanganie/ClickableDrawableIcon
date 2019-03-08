@@ -2,7 +2,6 @@ package com.adnan.clickabledrawableicon;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.adnan.clickabledrawable.CustomTextInputEditText;
 
@@ -14,12 +13,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         CustomTextInputEditText textInputEditText = findViewById(R.id.textInputLayout);
 
         textInputEditText.setDrawableClickListener(new CustomTextInputEditText.DrawableClickListener() {
             @Override
             public void onClick(@NotNull DrawablePosition target) {
-                switch (target) {
+                /* switch (target) {
                     case TOP:
                         Toast.makeText(MainActivity.this, "You clicked on DrawableTop Icon", Toast.LENGTH_SHORT).show();
                         break;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
                     default:
                         break;
 
-                }
+                }*/
             }
         });
     }
