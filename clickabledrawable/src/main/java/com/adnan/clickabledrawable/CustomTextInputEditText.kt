@@ -60,22 +60,22 @@ class CustomTextInputEditText : TextInputEditText {
 
     }
 
-    override fun setCompoundDrawables(left: Drawable?, top: Drawable?,
-                                      right: Drawable?, bottom: Drawable?) {
-        if (left != null) {
-            drawableLeft = left
-        }
-        if (right != null) {
-            drawableRight = right
-        }
-        if (top != null) {
-            drawableTop = top
-        }
-        if (bottom != null) {
-            drawableBottom = bottom
-        }
-        super.setCompoundDrawables(left, top, right, bottom)
-    }
+//     override fun setCompoundDrawables(left: Drawable?, top: Drawable?,
+//                                       right: Drawable?, bottom: Drawable?) {
+//         if (left != null) {
+//             drawableLeft = left
+//         }
+//         if (right != null) {
+//             drawableRight = right
+//         }
+//         if (top != null) {
+//             drawableTop = top
+//         }
+//         if (bottom != null) {
+//             drawableBottom = bottom
+//         }
+//         super.setCompoundDrawables(left, top, right, bottom)
+//     }
 
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
