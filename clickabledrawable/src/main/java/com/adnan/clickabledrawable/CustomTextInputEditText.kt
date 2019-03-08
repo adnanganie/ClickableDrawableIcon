@@ -26,6 +26,22 @@ class CustomTextInputEditText : TextInputEditText {
 
     constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle) {}
 
+    override fun setCompoundDrawablesRelative(start: Drawable?, top: Drawable?, end: Drawable?, bottom: Drawable?) {
+        if (start != null) {
+            drawableLeft = start
+        }
+        if (end != null) {
+            drawableRight = end
+        }
+        if (top != null) {
+            drawableTop = top
+        }
+        if (bottom != null) {
+            drawableBottom = bottom
+        }
+        super.setCompoundDrawablesRelative(start, top, end, bottom)
+    }
+
     override fun setCompoundDrawablesRelativeWithIntrinsicBounds(start: Drawable?, top: Drawable?, end: Drawable?, bottom: Drawable?) {
 
         if (start != null) {
