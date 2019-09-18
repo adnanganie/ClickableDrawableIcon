@@ -1,6 +1,7 @@
 package com.adnan.clickabledrawable
 
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
@@ -78,6 +79,7 @@ class CustomTextInputEditText : TextInputEditText {
 //     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent): Boolean {
         var bounds: Rect?
         if (event.action == MotionEvent.ACTION_DOWN) {
